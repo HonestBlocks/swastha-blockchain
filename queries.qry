@@ -1,0 +1,70 @@
+/**
+ * New query file
+ */
+query selectShipmentByID {
+  description: "Select shipments based on their ID"
+  statement:
+      SELECT org.example.mynetwork.shipment
+        WHERE (shipmentID==_$shipmentID)
+}
+query getHistorianRecords {
+  description: "Get all Historian Records"
+  statement: 
+      SELECT org.hyperledger.composer.system.HistorianRecord
+}
+
+query getHistorianByPerson {
+  description: "Get historian records by a particular participant"
+  statement: 
+      SELECT org.hyperledger.composer.system.HistorianRecord
+        WHERE (participantInvoking == _$participantInvoking)
+}
+
+query getHistorianByType {
+  description: "Get all Historian records by a particular type"
+  statement: 
+      SELECT org.hyperledger.composer.system.HistorianRecord
+        WHERE (transactionType == _$transactionType)
+}
+
+query getMedicineOwner {
+  description: "Get the owner of a medicine"
+  statement:
+      SELECT org.example.mynetwork.medicine
+          WHERE (medicineID == _$medicineID)
+}
+
+query getPaymentStatusByContractID {
+  description: "Get Payment Status based on ContractID"
+  statement:
+      SELECT org.example.mynetwork.contract
+          WHERE (contractID == _$contractID)
+}
+query SelectBoxByID
+{
+  description: "select box based on its id"
+  statement:
+      SELECT org.example.mynetwork.box
+           WHERE (boxId == _$boxId)
+}
+query SelectBoxByTrackingCode
+{
+  description: "select box based on its tracking code"
+  statement: 
+      SELECT org.example.mynetwork.box
+            WHERE (trackingCode == _$trackingCode)
+}
+query getBoxByDestinationAddress
+{
+  description: "Get box based on its destination address"
+  statement: 
+      SELECT org.example.mynetwork.box
+            WHERE (destinationAddress == _$destinationAddress)
+}
+query getShipmentByOwner
+{
+  description: "Get shipment by owner (transporter)"
+  statement:
+      SELECT org.example.mynetwork.shipment
+            WHERE (owner == _$transportID)
+}

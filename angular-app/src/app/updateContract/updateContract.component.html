@@ -1,0 +1,177 @@
+<!--
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<div class="modal fade" id="addTransactionModal" tabindex="-1" role="dialog" aria-labelledby="addTransactionModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="addTransactionModalLabel">Create Transaction</h4>
+        <p class="modal-intro">Enter the required values below.</p>
+      </div>
+      <form [formGroup]="myForm">
+        <div class="modal-body">
+
+
+          
+
+            
+              <label for="status">status</label>
+              <div class="checkbox">
+                
+                  <label>
+                    <input
+                      
+                        formControlName="status"
+                      
+                      name="status"
+                      value="PAID"
+                      type="radio"
+                      
+                    />
+                    PAID
+                  </label>
+                
+                  <label>
+                    <input
+                      
+                        formControlName="status"
+                      
+                      name="status"
+                      value="UNPAID"
+                      type="radio"
+                      
+                    />
+                    UNPAID
+                  </label>
+                
+              </div>
+            
+          
+
+            
+              <label for="completionstatus">completionstatus</label>
+              <div class="checkbox">
+                
+                  <label>
+                    <input
+                      
+                        formControlName="completionstatus"
+                      
+                      name="completionstatus"
+                      value="REJECTED"
+                      type="radio"
+                      
+                    />
+                    REJECTED
+                  </label>
+                
+                  <label>
+                    <input
+                      
+                        formControlName="completionstatus"
+                      
+                      name="completionstatus"
+                      value="PARTIAL"
+                      type="radio"
+                      
+                    />
+                    PARTIAL
+                  </label>
+                
+                  <label>
+                    <input
+                      
+                        formControlName="completionstatus"
+                      
+                      name="completionstatus"
+                      value="FULL"
+                      type="radio"
+                      
+                    />
+                    FULL
+                  </label>
+                
+              </div>
+            
+          
+
+            
+              <div class="form-group text-left">
+                <label for="contract">contract</label>
+                
+                    <textarea formControlName="contract" class="form-control" rows="3"></textarea>
+                
+              </div>
+            
+          
+
+            
+          
+
+            
+          
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button (click)="addTransaction(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Confirm</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container col-md-6">
+    <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        <strong>Error:</strong> {{errorMessage}}
+    </div>
+
+  <div class="row">
+    <div class="col-md-12">
+        <h1 class="transaction-title" id='transactionName'>updateContract</h1>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-12">
+          When invoked, this transaction will have the following attributes:
+          <br>
+          <ul>
+            
+              
+                <li><span class="attribute"><b>status</b></span></li>
+              
+            
+              
+                <li><span class="attribute"><b>completionstatus</b></span></li>
+              
+            
+              
+                <li><span class="attribute"><b>contract</b></span></li>
+              
+            
+              
+            
+              
+            
+          </ul>
+        </div>
+      </div>
+      <button (click)="resetForm();" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addTransactionModal">Invoke</button>
+    </div>
+  </div>
+</div>
+

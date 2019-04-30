@@ -1,0 +1,282 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+rule NetworkAdminUser {
+    description: "Grant business network administrators full access to user resources"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "**"
+   action: ALLOW
+}
+rule NetworkAdminSystem {
+    description: "Grant business network administrators full access to system resources"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "org.hyperledger.composer.system.**"
+    action: ALLOW
+}
+rule SystemACL {
+    description: "System ACL to permit all access"
+    participant: "org.hyperledger.composer.system.Participant"
+    operation: ALL
+    resource: "org.hyperledger.composer.system.**"
+    action: ALLOW
+}
+rule historianAccessSupplyChainMember{
+  description: "Only allow members to read historian records referencing transactions they submitted."
+  participant(p): "org.example.mynetwork.supplyChainMember"
+  operation: READ
+  resource(r): "org.hyperledger.composer.system.HistorianRecord"
+  condition: (r.participantInvoking.getIdentifier() == p.getIdentifier())
+  action: ALLOW
+}
+
+rule manufacturerUpdateMedicineRules{
+  description: "Provide create, update and read medicine permission to manufacturer"
+  participant(p): "org.example.mynetwork.manufacturer"
+  operation: UPDATE
+  resource(r): "org.example.mynetwork.medicine"
+  condition: (r.manufacturer.getIdentifier() === p.getIdentifier() && r.owner.getIdentifier() === p.getIdentifier())
+  action: ALLOW
+}
+
+rule manufacturerMedicineRules {
+  description: "Manufacturer Medicine Rules for create and read"
+  participant(p): "org.example.mynetwork.manufacturer"
+  operation: CREATE, READ
+  resource(r): "org.example.mynetwork.medicine"
+  condition: (r.manufacturer.getIdentifier() === p.getIdentifier())
+  action: ALLOW
+
+}
+
+rule manufacturerUpdateMedicine{
+  description: "Provide manufacturer the permission to create and read medicine"
+  participant: "org.example.mynetwork.manufacturer"
+  operation: CREATE,READ
+  resource: "org.example.mynetwork.updateMedicine"
+  action: ALLOW
+}
+rule manufacturerShipmentRules
+{
+  description: "Provide manufacturer the permission to read shipment"
+  participant: "org.example.mynetwork.manufacturer"
+  operation: READ
+  resource: "org.example.mynetwork.shipment"
+  action: ALLOW
+}
+rule manufacturerContractRules
+{
+  description: "provide manufacturer the permission to create and update contract"
+  participant: "org.example.mynetwork.manufacturer"
+  operation: CREATE,UPDATE
+  resource: "org.example.mynetwork.contract"
+  action: ALLOW
+}
+rule manufacturerCreateContractRules
+{
+  description: "provide manufacturer the permission to create and update contract"
+  participant: "org.example.mynetwork.manufacturer"
+  operation: CREATE,UPDATE,READ
+  resource: "org.example.mynetwork.createContract"
+  action: ALLOW
+}
+rule manufacturerUpdateContractRules
+{
+  description: "provide manufacturer the permission to create and update contract"
+  participant: "org.example.mynetwork.manufacturer"
+  operation: CREATE,UPDATE,READ
+  resource: "org.example.mynetwork.updateContract"
+  action: ALLOW
+}
+rule manufacturerBoxRules
+{
+  description: "provide manufacturer the permission to create the box"
+  participant: "org.example.mynetwork.manufacturer"
+  operation: CREATE,READ
+  resource: "org.example.mynetwork.box"
+  action: ALLOW
+}
+rule manufacturerCreateBoxRule
+{
+  description: "provide manufacturer the permission to access the createBox transaction"
+  participant: "org.example.mynetwork.manufacturer"
+  operation: CREATE,READ
+  resource: "org.example.mynetwork.createBox"
+  action: ALLOW
+}
+
+rule contractCreate{
+ description: "Allow distributor read access to his Medicine asset"
+ participant(p): "org.example.mynetwork.supplyChainMember"
+ operation: CREATE
+ resource(r): "org.example.mynetwork.contract"
+ condition: (r.seller.getIdentifier() === r.medicineID.owner.getIdentifier())
+ action: ALLOW 
+}
+
+rule contractView{
+ description: "Allow distributor read access to his Medicine asset"
+ participant(p): "org.example.mynetwork.supplyChainMember"
+ operation: READ
+ resource(r): "org.example.mynetwork.contract"
+ condition: (r.buyer.getIdentifier() === p.getIdentifier() || r.seller.getIdentifier() === p.getIdentifier())
+ action: ALLOW
+}
+rule medicineView {
+description: "Allow distributor read access to his Medicine asset"
+participant(p): "org.example.mynetwork.supplyChainMember"
+operation: READ
+resource(r): "org.example.mynetwork.medicine"
+condition: (r.owner.getIdentifier() === p.getIdentifier())
+action: ALLOW
+}
+rule distributorUpdateMedicineRules
+{
+  description: "provide distributor the permission to update medicine"
+  participant: "org.example.mynetwork.distributor"
+  operation: CREATE,READ
+  resource: "org.example.mynetwork.updateMedicine"
+  action: ALLOW
+}
+rule distributorMedicineRules
+{
+  description: "provide distributor the permission to update medicine"
+  participant(p): "org.example.mynetwork.distributor"
+  operation: UPDATE
+  resource(r): "org.example.mynetwork.medicine"
+  condition: (r.owner.getIdentifier() === p.getIdentifier())
+  action: ALLOW
+}
+
+rule distributorContractRules
+{
+  description: "provide distributor the permission to create, update and read contract"
+  participant: "org.example.mynetwork.distributor"
+  operation: CREATE,UPDATE
+  resource: "org.example.mynetwork.contract"
+  action: ALLOW
+}
+rule distributorCreateContractRules
+{
+  description: "provide distributor the permission to create contract"
+  participant: "org.example.mynetwork.distributor"
+  operation: CREATE,READ
+  resource: "org.example.mynetwork.createContract"
+  action: ALLOW
+}
+rule distributorUpdateContractRules
+{
+  description: "provide distributor the permission to update contract"
+  participant: "org.example.mynetwork.distributor"
+  operation: CREATE,UPDATE,READ
+  resource: "org.example.mynetwork.updateContract"
+  action: ALLOW
+}
+rule distributorBoxRules
+{
+  description: "provide distributor the permission to create box and update its status"
+  participant: "org.example.mynetwork.distributor"
+  operation: CREATE,READ
+  resource: "org.example.mynetwork.box"
+  action: ALLOW
+}
+rule distributorCreateBoxRules
+{
+  description: "provide distributor the permission to access createBox transaction"
+  participant: "org.example.mynetwork.distributor"
+  operation: CREATE,READ
+  resource: "org.example.mynetwork.createBox"
+  action: ALLOW
+}
+rule distributorUpdateBoxStatusRule
+{
+  description: "provide distributor the permission to access updateBoxStatus transaction"
+  participant: "org.example.mynetwork.distributor"
+  operation: UPDATE,READ
+  resource: "org.example.mynetwork.updateBoxStatus"
+  action: ALLOW
+}
+rule historianAccessTransporter{
+  description: "Only allow members to read historian records referencing transactions they submitted."
+  participant(p): "org.example.mynetwork.transporter"
+  operation: READ
+  resource(r): "org.hyperledger.composer.system.HistorianRecord"
+  condition: (r.participantInvoking.getIdentifier() == p.getIdentifier())
+  action: ALLOW 
+}
+rule TransporterShipmentRules
+{
+  description: "provide transporter the permission to create and update shipment"
+  participant: "org.example.mynetwork.transporter"
+  operation: CREATE,READ,DELETE
+  resource: "org.example.mynetwork.shipment"
+  action: ALLOW
+}
+rule TransporterCreateShipmentRules
+{
+  description: "provide transporter the permission to create shipment"
+  participant: "org.example.mynetwork.transporter"
+  operation: CREATE,READ
+  resource: "org.example.mynetwork.createShipment"
+  action: ALLOW
+}
+rule TransporterUpdateShipmentStatusRules
+{
+  description: "provide transporter the permission to update the shipment status"
+  participant: "org.example.mynetwork.transporter"
+  operation: UPDATE,READ
+  resource: "org.example.mynetwork.updateShipmentStatus"
+  action: ALLOW
+}
+rule TransporterDeleteShipmentRules{
+  description: "provide transporter the permission to access deleteShipment transaction"
+  participant: "org.example.mynetwork.transporter"
+  operation: DELETE,READ
+  resource: "org.example.mynetwork.deleteShipment"
+  action: ALLOW
+}
+rule TransporterBoxRule
+{
+  description: "provide transporter the permission to update box"
+  participant: "org.example.mynetwork.transporter"
+  operation: UPDATE,READ
+  resource: "org.example.mynetwork.box"
+  action: ALLOW
+}
+rule TransporterUpdateBoxRule
+{
+  description: "provide transporter the permission to update box"
+  participant: "org.example.mynetwork.transporter"
+  operation: UPDATE,READ
+  resource: "org.example.mynetwork.updateBox"
+  action: ALLOW
+}
+rule historianAccessCustomer{
+  description: "Allow customer to view the full historian record"
+  participant: "org.example.mynetwork.customer"
+  operation: READ
+  resource: "org.hyperledger.composer.system.HistorianRecord"
+  action: ALLOW 
+}
+
+rule regulatorsReadEverything{
+  description: "provide customer the permission to read everything"
+  participant: "org.example.mynetwork.regulators"
+  operation: READ
+  resource: "org.example.mynetwork.*"
+  action: ALLOW
+}
+
+
+

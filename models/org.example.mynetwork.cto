@@ -1,0 +1,249 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * Write your model definitions here
+ */
+
+namespace org.example.mynetwork
+
+
+abstract participant supplyChainMember identified by participantID {
+  o String participantID
+}
+asset medicine identified by medicineID {
+  o String medicineID
+  o String medicineName
+  o DateTime manufactureDate
+  o DateTime expiryDate
+  --> manufacturer manufacturer
+  --> supplyChainMember owner
+}
+asset box identified by boxId{
+  o String boxId
+  o String trackingCode
+  o String originAddress
+  o String destinationAddress
+  o String currentAddress
+  o boxStatus status
+  -->medicine[] medicineID
+  o String[] quantity
+  --> shipment shipment
+  --> contract parentcontract 
+  --> box previousBox optional
+}
+asset shipment identified by shipmentID {
+  o String shipmentID
+  -->box[] boxId
+  o String routename
+  o Boolean reachedDestination
+  --> transporter owner
+}
+asset contract identified by contractID {
+  o String contractID
+  -->medicine[] medicineID
+  o String[] quantity
+  o paymentStatus status
+  o completionStatus completionstatus
+  o String price
+  -->supplyChainMember seller
+  -->supplyChainMember buyer  
+}
+enum paymentStatus{
+  o PAID
+  o UNPAID
+}
+enum shipmentStatus{
+  o DELIVERED
+  o ONTHEWAY
+}
+
+enum boxStatus{
+  o DELIVERED
+  o ONTHEWAY
+}
+enum completionStatus{
+  o REJECTED
+  o PARTIAL
+  o FULL
+}
+participant manufacturer extends supplyChainMember{
+  o String name
+  o String address 
+  o String contact_number
+}
+
+participant distributor extends supplyChainMember {
+  o String name
+  o String address 
+  o String contact_number
+}
+
+participant customer extends supplyChainMember {
+  o String name
+  o String address 
+  o String contact_number
+}
+
+participant transporter identified by transporterID{
+  o String transporterID
+  o String name
+  o String address 
+  o String contact_number
+}
+
+participant regulators identified by regulatorID{
+  o String regulatorID
+  o String name
+  o String address 
+  o String contact_number
+}
+
+transaction updateShipment {
+  o String newTrackingCode
+  o String newCurrentAddress
+  o shipmentStatus newStatus
+  --> shipment shipment
+}
+
+transaction createContract{
+  o String contractID
+  -->medicine[] medicineID
+  o String[] quantity
+  o paymentStatus status
+  o completionStatus completionstatus
+  o String price
+  -->supplyChainMember seller
+  -->supplyChainMember buyer 
+ }
+
+transaction createBox{
+  o String boxId
+  o String trackingCode
+  o String originAddress
+  o String destinationAddress
+  o String currentAddress
+  o boxStatus status
+  o medicine[] medicineID
+  o String[] quantity
+  --> shipment shipment
+  --> contract parentcontract 
+  --> box previousBox
+}
+
+transaction createShipment{
+  o String shipmentID
+  o box[] boxId
+  o String routename
+  o Boolean reachedDestination
+  --> transporter owner
+}
+
+transaction updateContract{
+  o paymentStatus status
+  o completionStatus completionstatus
+  -->contract contract
+}
+
+transaction createMedicine{
+  o String medicineID
+  o String medicineName
+  o DateTime manufactureDate
+  o DateTime expiryDate
+  --> manufacturer manufacturer
+  --> supplyChainMember owner
+}
+
+transaction deleteShipment{
+  -->shipment Shipment
+}
+
+transaction updateShipmentStatus{
+  -->shipment shipment
+  o Boolean reachedDestination
+}
+
+transaction updateBox{
+  -->box box
+  o String currentAddress
+}
+
+transaction updateBoxStatus{
+  -->box box
+  o boxStatus status
+}
+
+transaction updateMedicine {
+  --> medicine  medicine
+  --> supplyChainMember newOwner
+}
+
+event error{
+  o String message
+  o String detail
+}
+
+event updateShipmentEvent {
+  o String newTrackingCode
+  o String newCurrentAddress
+}
+
+event updateContractEvent {
+  o paymentStatus newPaymentStatus
+}
+
+event deleteShipmentEvent {
+  o String shipmentID
+  o shipmentStatus status
+}
+
+event createMedicineEvent {
+  o String medicineID
+  o String medicineName
+}
+
+event createContractEvent{           
+  o paymentStatus status
+  o medicine[] medicineID
+  o String[] quantity
+}
+
+event createShipmentEvent{                    
+  o box[] boxId
+  o Boolean reachedDestination
+}
+
+event updateShipmentStatusEvent {
+  o Boolean reachedDestination
+}
+
+event updateMedicineEvent {
+  o medicine  medicine
+  o supplyChainMember newOwner
+  o String certificate
+}
+
+event createBoxEvent{
+  o medicine[] medicineContained
+  o String[] quantity
+  o boxStatus status
+}
+
+event updateBoxEvent{
+  o String newBoxAddress
+}
+
+event updateBoxStatusEvent{
+  o boxStatus status
+}
