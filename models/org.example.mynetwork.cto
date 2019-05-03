@@ -64,6 +64,7 @@ enum paymentStatus{
   o PAID
   o UNPAID
 }
+
 enum shipmentStatus{
   o DELIVERED
   o ONTHEWAY
@@ -135,7 +136,7 @@ transaction createBox{
   o String destinationAddress
   o String currentAddress
   o boxStatus status
-  o medicine[] medicineID
+  --> medicine[] medicineID
   o String[] quantity
   --> shipment shipment
   --> contract parentcontract 
@@ -144,7 +145,7 @@ transaction createBox{
 
 transaction createShipment{
   o String shipmentID
-  o box[] boxId
+  --> box[] boxId
   o String routename
   o Boolean reachedDestination
   --> transporter owner
