@@ -1,16 +1,16 @@
 {
-  "name": "angular-app",
-  "description": "Hyperledger Composer Angular project",
+  "name": "Swastha-Blockchain",
+  "description": "Pharma Trading Platform on Fabric Blockchain",
   "version": "0.0.1",
-  "author": "Kshitiz Tiwari",
-  "email": "kshtz.zthsk01@gmail.com",
+  "author": "Nadeem Bhati",
+  "email": "nadeemb53@gmail.com",
   "license": "Apache-2.0",
   "engines": {
     "node": ">=8",
     "npm": ">=5"
   },
   "bin": {
-    "angular-app": "app.js"
+    "Swastha-Blockchain": "app.js"
   },
   "scripts": {
     "ng": "ng",

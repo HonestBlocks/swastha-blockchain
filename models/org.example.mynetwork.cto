@@ -248,3 +248,4 @@ event updateBoxEvent{
 event updateBoxStatusEvent{
   o boxStatus status
 }
+

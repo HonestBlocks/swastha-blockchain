@@ -17,17 +17,17 @@ import { ExpectedConditions, browser, element, by } from 'protractor';
 import {} from 'jasmine';
 
 
-describe('Starting tests for angular-app', function() {
+describe('Starting tests for Swastha-Blockchain', function() {
   let page: AngularTestPage;
 
   beforeEach(() => {
     page = new AngularTestPage();
   });
 
-  it('website title should be angular-app', () => {
+  it('website title should be Swastha-Blockchain', () => {
     page.navigateTo('/');
     return browser.getTitle().then((result)=>{
-      expect(result).toBe('angular-app');
+      expect(result).toBe('Swastha-Blockchain');
     })
   });
 
@@ -41,13 +41,13 @@ describe('Starting tests for angular-app', function() {
     });
   });
 
-  it('navbar-brand should be angular-app',() => {
+  it('navbar-brand should be Swastha-Blockchain',() => {
     element(by.css('.navbar-brand')).getWebElement()
     .then((webElement) => {
       return webElement.getText();
     })
     .then((txt) => {
-      expect(txt).toBe('angular-app');
+      expect(txt).toBe('Swastha-Blockchain');
     });
   });
 

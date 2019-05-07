@@ -68,3 +68,4 @@ query getShipmentByOwner
       SELECT org.example.mynetwork.shipment
             WHERE (owner == _$transportID)
 }
+

@@ -1,0 +1,237 @@
+================================================================================
+==== Node Report ===============================================================
+
+Event: exception, location: "OnUncaughtException"
+Filename: node-report.20190507.165730.16722.001.txt
+Dump event time:  2019/05/07 16:57:30
+Module load time: 2019/05/07 16:57:23
+Process ID: 16722
+Command line: node /home/nadeem/.nvm/versions/node/v8.12.0/bin/composer network install --card PeerAdmin@hlfv1 --archiveFile swastha-blockchain.bna 
+
+Node.js version: v8.12.0
+(http_parser: 2.8.0, v8: 6.2.414.66, uv: 1.19.2, zlib: 1.2.11, ares: 1.10.1-DEV,
+ modules: 57, nghttp2: 1.32.0, napi: 3, openssl: 1.0.2p, icu: 60.1, unicode: 10.0,
+ cldr: 32.0, tz: 2017c)
+
+node-report version: 2.2.1 (built against Node.js v8.12.0, glibc 2.27, 64 bit)
+
+OS version: Linux 4.15.0-48-generic #51-Ubuntu SMP Wed Apr 3 08:28:49 UTC 2019
+(glibc: 2.27)
+
+Machine: nadeem-HP-Pavilion-Notebook x86_64
+
+================================================================================
+==== JavaScript Stack Trace ====================================================
+
+WriteStream.emit (events.js:1:1)
+onwriteError (_stream_writable.js:1:1)
+onwrite (_stream_writable.js:1:1)
+_destroy (internal/streams/destroy.js:1:1)
+WriteStream.stderr._destroy (internal/process/stdio.js:1:1)
+WriteStream.destroy (internal/streams/destroy.js:1:1)
+WriteWrap.afterWrite [as oncomplete] (net.js:1:1)
+
+================================================================================
+==== Native Stack Trace ========================================================
+
+ 0: [pc=0x7efff2b2009b] nodereport::OnUncaughtException(v8::Isolate*) [/home/nadeem/.nvm/versions/node/v8.12.0/lib/node_modules/composer-cli/node_modules/node-report/api.node]
+ 1: [pc=0xead6e2] v8::internal::Isolate::Throw(v8::internal::Object*, v8::internal::MessageLocation*) [node]
+ 2: [pc=0x10262ad] v8::internal::Runtime_Throw(int, v8::internal::Object**, v8::internal::Isolate*) [node]
+ 3: [pc=0x2abe6a7042fd] 
+
+================================================================================
+==== JavaScript Heap and Garbage Collector =====================================
+
+Heap space name: new_space
+    Memory size: 33,554,432 bytes, committed memory: 32,005,712 bytes
+    Capacity: 16,498,688 bytes, used: 13,896,608 bytes, available: 2,602,080 bytes
+Heap space name: old_space
+    Memory size: 43,315,200 bytes, committed memory: 42,956,408 bytes
+    Capacity: 42,333,032 bytes, used: 30,735,424 bytes, available: 11,597,608 bytes
+Heap space name: code_space
+    Memory size: 2,097,152 bytes, committed memory: 1,670,240 bytes
+    Capacity: 1,741,920 bytes, used: 1,551,840 bytes, available: 190,080 bytes
+Heap space name: map_space
+    Memory size: 4,739,072 bytes, committed memory: 4,685,656 bytes
+    Capacity: 4,649,832 bytes, used: 1,707,552 bytes, available: 2,942,280 bytes
+Heap space name: large_object_space
+    Memory size: 2,822,144 bytes, committed memory: 2,822,144 bytes
+    Capacity: 1,415,705,608 bytes, used: 2,778,632 bytes, available: 1,412,926,976 bytes
+
+Total heap memory size: 86,528,000 bytes
+Total heap committed memory: 84,140,160 bytes
+Total used heap memory: 50,670,056 bytes
+Total available heap memory: 1,430,259,024 bytes
+
+Heap memory limit: 1,501,560,832
+
+================================================================================
+==== Resource Usage ============================================================
+
+Process total resource usage:
+  User mode CPU: 3.632136 secs
+  Kernel mode CPU: 0.561293 secs
+  Average CPU Consumption : 59.9061%
+  Maximum resident set size: 124,243,968 bytes
+  Page faults: 26 (I/O required) 43647 (no I/O required)
+  Filesystem activity: 38208 reads 16 writes
+
+Event loop thread resource usage:
+  User mode CPU: 3.215560 secs
+  Kernel mode CPU: 0.508995 secs
+  Average CPU Consumption : 53.2079%
+  Filesystem activity: 38072 reads 16 writes
+
+================================================================================
+==== Node.js libuv Handle Summary ==============================================
+
+(Flags: R=Ref, A=Active)
+Flags  Type      Address             Details
+[-A]   async     0x0000000002fd5110  
+[--]   check     0x00007fffe3098dd0  
+[R-]   idle      0x00007fffe3098e48  
+[--]   prepare   0x00007fffe3098ec0  
+[--]   check     0x00007fffe3098f38  
+[-A]   async     0x000000000217bb40  
+[R-]   timer     0x0000000002fec9a0  repeat: 0, timeout expired: 95827768 ms ago
+[R-]   tty       0x0000000002fdd8a8  , file descriptor: 9, write queue size: 0, writable
+[-A]   signal    0x0000000002fec840  signum: 28 (SIGWINCH)
+[R-]   tty       0x0000000002ffb6d8  , file descriptor: 11, write queue size: 0, writable
+[-A]   async     0x00007efff2d28ce0  
+[-A]   signal    0x000000000309ee90  signum: 6 (SIGABRT)
+[-A]   signal    0x000000000306bd10  signum: 14 (SIGALRM)
+[-A]   signal    0x0000000002ffb430  signum: 1 (SIGHUP)
+[-A]   signal    0x000000000317df30  signum: 2 (SIGINT)
+[-A]   signal    0x000000000308d580  signum: 15 (SIGTERM)
+[-A]   signal    0x0000000003089120  signum: 26 (SIGVTALRM)
+[-A]   signal    0x0000000003089210  signum: 24 (SIGXCPU)
+[-A]   signal    0x0000000003196aa0  signum: 25 (SIGXFSZ)
+[-A]   signal    0x0000000003196b90  signum: 12 (SIGUSR2)
+[-A]   signal    0x00000000030a5800  signum: 5 (SIGTRAP)
+[-A]   signal    0x00000000030a58f0  signum: 31 (SIGSYS)
+[-A]   signal    0x0000000003068730  signum: 3 (SIGQUIT)
+[-A]   signal    0x0000000003068820  signum: 6 (SIGABRT)
+[-A]   signal    0x000000000320e270  signum: 29 (SIGIO)
+[-A]   signal    0x000000000320e360  signum: 29 (SIGIO)
+[-A]   signal    0x0000000003027b20  signum: 30 (SIGPWR)
+[-A]   signal    0x0000000003027c10  signum: 16 (SIGSTKFLT)
+[-A]   signal    0x0000000003027d00  signum: 31 (SIGSYS)
+[RA]   timer     0x00000000030501f0  repeat: 0, timeout in: 80 ms
+[-A]   timer     0x000000000306ce48  repeat: 0, timeout in: 2726 ms
+[-A]   async     0x00007effe40057e0  
+[R-]   timer     0x000000000302b9c0  repeat: 0, timeout in: 30399722593634618 ms
+[-A]   async     0x00007efff0b0ea58  
+[R-]   timer     0x00007effec002280  repeat: 0, timeout in: 30399722593634618 ms
+[R-]   prepare   0x00007efff0b0e980  
+[-A]   async     0x00007effe80019c0  
+[-A]   async     0x00007effec0082e0  
+[-A]   async     0x00007effe400df90  
+[-A]   async     0x0000000003028da0  
+[-A]   async     0x00000000031d6410  
+[-A]   async     0x00007effdc006af0  
+[R-]   timer     0x0000000003192dd0  repeat: 0, timeout in: 30399722593634618 ms
+[--]   timer     0x00007effe800a9e0  repeat: 0, timeout expired: 188 ms ago
+[-A]   timer     0x00007effe40042f0  repeat: 0, timeout in: 5000 ms
+
+================================================================================
+==== System Information ========================================================
+
+Environment variables
+  CLUTTER_IM_MODULE=xim
+  NVM_DIR=/home/nadeem/.nvm
+  LD_LIBRARY_PATH=/opt/google/chrome:/opt/google/chrome/lib
+  LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+  LESSCLOSE=/usr/bin/lesspipe %s %s
+  XDG_MENU_PREFIX=gnome-
+  LANG=en_IN
+  DISPLAY=:0
+  OLDPWD=/home/nadeem
+  GNOME_SHELL_SESSION_MODE=ubuntu
+  COLORTERM=truecolor
+  NVM_CD_FLAGS=
+  USERNAME=nadeem
+  NO_AT_BRIDGE=1
+  XDG_VTNR=2
+  SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+  MANDATORY_PATH=/usr/share/gconf/ubuntu.mandatory.path
+  S_COLORS=auto
+  FABRIC_CA_HOME=/home/nadeem/Documents/Fabric-CA
+  XDG_SESSION_ID=3
+  USER=nadeem
+  DESKTOP_SESSION=ubuntu
+  QT4_IM_MODULE=xim
+  TEXTDOMAINDIR=/usr/share/locale/
+  MM_NOTTTY=1
+  GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/5f680655_bdfc_407e_b485_0974a961cfce
+  DEFAULTS_PATH=/usr/share/gconf/ubuntu.default.path
+  PWD=/home/nadeem/swastha-blockchain
+  HOME=/home/nadeem
+  GOROOT=/usr/local/go
+  TEXTDOMAIN=im-config
+  SSH_AGENT_PID=2964
+  QT_ACCESSIBILITY=1
+  XDG_SESSION_TYPE=x11
+  XDG_DATA_DIRS=/usr/share/ubuntu:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+  XDG_SESSION_DESKTOP=ubuntu
+  GJS_DEBUG_OUTPUT=stderr
+  GTK_MODULES=gail:atk-bridge
+  WINDOWPATH=2
+  SHELL=/bin/bash
+  TERM=xterm-256color
+  VTE_VERSION=5202
+  QT_IM_MODULE=ibus
+  XMODIFIERS=@im=ibus
+  IM_CONFIG_PHASE=2
+  CHROME_WRAPPER=/opt/google/chrome/google-chrome
+  NVM_BIN=/home/nadeem/.nvm/versions/node/v8.12.0/bin
+  XDG_CURRENT_DESKTOP=ubuntu:GNOME
+  GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+  GNOME_TERMINAL_SERVICE=:1.182
+  SHLVL=2
+  XDG_SEAT=seat0
+  LANGUAGE=en_IN:en
+  CHROME_VERSION_EXTRA=stable
+  FABRIC_CA_CLIENT_HOME=/home/nadeem/Documents/Fabric-CA/client
+  GDMSESSION=ubuntu
+  FABRIC_CA_SERVER_HOME=/home/nadeem/Documents/Fabric-CA/server
+  GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+  LOGNAME=nadeem
+  DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+  XDG_RUNTIME_DIR=/run/user/1000
+  XAUTHORITY=/run/user/1000/gdm/Xauthority
+  XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+  PATH=/home/nadeem/.nvm/versions/node/v8.12.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin:/home/nadeem/Documents/Blockchain/src/github.com/hyperledger/fabric-ca/bin
+  GJS_DEBUG_TOPICS=JS ERROR;JS LOG
+  SESSION_MANAGER=local/nadeem-HP-Pavilion-Notebook:@/tmp/.ICE-unix/2868,unix/nadeem-HP-Pavilion-Notebook:/tmp/.ICE-unix/2868
+  LESSOPEN=| /usr/bin/lesspipe %s
+  GTK_IM_MODULE=ibus
+  _=/home/nadeem/.nvm/versions/node/v8.12.0/bin/composer
+  SUPPRESS_NO_CONFIG_WARNING=y
+  GRPC_SSL_CIPHER_SUITES=ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384
+
+Resource limits                        soft limit      hard limit
+  core file size (blocks)                       0       unlimited
+  data seg size (kbytes)                unlimited       unlimited
+  file size (blocks)                    unlimited       unlimited
+  max locked memory (bytes)              16777216        16777216
+  max memory size (kbytes)              unlimited       unlimited
+  open files                                 4096            4096
+  stack size (bytes)                      8388608       unlimited
+  cpu time (seconds)                    unlimited       unlimited
+  max user processes                        31088           31088
+  virtual memory (kbytes)               unlimited       unlimited
+
+Loaded libraries
+  linux-vdso.so.1
+  /lib/x86_64-linux-gnu/libdl.so.2
+  /lib/x86_64-linux-gnu/librt.so.1
+  /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+  /lib/x86_64-linux-gnu/libm.so.6
+  /lib/x86_64-linux-gnu/libgcc_s.so.1
+  /lib/x86_64-linux-gnu/libpthread.so.0
+  /lib/x86_64-linux-gnu/libc.so.6
+  /lib64/ld-linux-x86-64.so.2
+  /home/nadeem/.nvm/versions/node/v8.12.0/lib/node_modules/composer-cli/node_modules/node-report/api.node
+  /home/nadeem/.nvm/versions/node/v8.12.0/lib/node_modules/composer-cli/node_modules/grpc/src/node/extension_binary/node-v57-linux-x64-glibc/grpc_node.node
+
+================================================================================
