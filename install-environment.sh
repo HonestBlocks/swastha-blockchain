@@ -17,10 +17,10 @@ mkdir ~/fabric-dev-servers && cd ~/fabric-dev-servers
 curl -O https://raw.githubusercontent.com/hyperledger/composer-tools/master/packages/fabric-dev-servers/fabric-dev-servers.tar.gz
 tar -xvf fabric-dev-servers.tar.gz
 export FABRIC_VERSION=hlfv12
-chmod 777 downloadFabric.sh
-chmod 777 startFabric.sh
-chmod 777 createPeerAdminCard.sh
-chmod 777 stopFabric.sh
-chmod 777 teardownFabric.sh
+chmod +x downloadFabric.sh
+chmod +x startFabric.sh
+chmod +x createPeerAdminCard.sh
+chmod +x stopFabric.sh
+chmod +x teardownFabric.sh
 ./downloadFabric.sh
 
