@@ -1,0 +1,237 @@
+================================================================================
+==== Node Report ===============================================================
+
+Event: exception, location: "OnUncaughtException"
+Filename: node-report.20190607.135205.12730.001.txt
+Dump event time:  2019/06/07 13:52:05
+Module load time: 2019/06/07 13:51:04
+Process ID: 12730
+Command line: node /home/sonia/.nvm/versions/node/v8.16.0/bin/composer network install --card PeerAdmin@hlfv1 --archiveFile swastha-blockchain.bna 
+
+Node.js version: v8.16.0
+(http_parser: 2.8.0, v8: 6.2.414.77, uv: 1.23.2, zlib: 1.2.11, ares: 1.10.1-DEV,
+ modules: 57, nghttp2: 1.33.0, napi: 4, openssl: 1.0.2r, icu: 60.1, unicode: 10.0,
+ cldr: 32.0, tz: 2017c)
+
+node-report version: 2.2.1 (built against Node.js v8.16.0, glibc 2.23, 64 bit)
+
+OS version: Linux 4.15.0-51-generic #55~16.04.1-Ubuntu SMP Thu May 16 09:24:37 UTC 2019
+(glibc: 2.23)
+
+Machine: sonia-Virtual-Machine x86_64
+
+================================================================================
+==== JavaScript Stack Trace ====================================================
+
+WriteStream.emit (events.js:183:7)
+onwriteError (_stream_writable.js:417:12)
+onwrite (_stream_writable.js:439:5)
+_destroy (internal/streams/destroy.js:39:7)
+WriteStream.Socket._destroy (net.js:568:3)
+WriteStream.destroy (internal/streams/destroy.js:32:8)
+WriteWrap.afterWrite [as oncomplete] (net.js:870:10)
+
+================================================================================
+==== Native Stack Trace ========================================================
+
+ 0: [pc=0x7f927df4f56b] nodereport::OnUncaughtException(v8::Isolate*) [/home/sonia/.nvm/versions/node/v8.16.0/lib/node_modules/composer-cli/node_modules/node-report/api.node]
+ 1: [pc=0xeb13e2] v8::internal::Isolate::Throw(v8::internal::Object*, v8::internal::MessageLocation*) [node]
+ 2: [pc=0x102acdd] v8::internal::Runtime_Throw(int, v8::internal::Object**, v8::internal::Isolate*) [node]
+ 3: [pc=0x7fbbc4042fd] 
+
+================================================================================
+==== JavaScript Heap and Garbage Collector =====================================
+
+Heap space name: new_space
+    Memory size: 33,554,432 bytes, committed memory: 32,520,056 bytes
+    Capacity: 16,498,688 bytes, used: 9,773,040 bytes, available: 6,725,648 bytes
+Heap space name: old_space
+    Memory size: 44,363,776 bytes, committed memory: 43,872,560 bytes
+    Capacity: 33,164,136 bytes, used: 30,932,000 bytes, available: 2,232,136 bytes
+Heap space name: code_space
+    Memory size: 2,097,152 bytes, committed memory: 1,656,736 bytes
+    Capacity: 1,753,376 bytes, used: 1,534,304 bytes, available: 219,072 bytes
+Heap space name: map_space
+    Memory size: 4,739,072 bytes, committed memory: 4,713,288 bytes
+    Capacity: 4,650,536 bytes, used: 1,692,680 bytes, available: 2,957,856 bytes
+Heap space name: large_object_space
+    Memory size: 2,822,144 bytes, committed memory: 2,822,144 bytes
+    Capacity: 1,414,657,032 bytes, used: 2,778,632 bytes, available: 1,411,878,400 bytes
+
+Total heap memory size: 87,576,576 bytes
+Total heap committed memory: 85,584,784 bytes
+Total used heap memory: 46,710,656 bytes
+Total available heap memory: 1,424,013,112 bytes
+
+Heap memory limit: 1,501,560,832
+
+================================================================================
+==== Resource Usage ============================================================
+
+Process total resource usage:
+  User mode CPU: 2.187239 secs
+  Kernel mode CPU: 0.213761 secs
+  Average CPU Consumption : 3.93607%
+  Maximum resident set size: 124,112,896 bytes
+  Page faults: 7 (I/O required) 44344 (no I/O required)
+  Filesystem activity: 1112 reads 16 writes
+
+Event loop thread resource usage:
+  User mode CPU: 1.899136 secs
+  Kernel mode CPU: 0.166658 secs
+  Average CPU Consumption : 3.38655%
+  Filesystem activity: 1112 reads 16 writes
+
+================================================================================
+==== Node.js libuv Handle Summary ==============================================
+
+(Flags: R=Ref, A=Active)
+Flags  Type      Address             Details
+[-A]   async     0x0000000002c24400  
+[--]   check     0x00007ffc5fb2b900  
+[R-]   idle      0x00007ffc5fb2b978  
+[--]   prepare   0x00007ffc5fb2b9f0  
+[--]   check     0x00007ffc5fb2ba68  
+[-A]   async     0x0000000002186780  
+[R-]   timer     0x0000000002c51a80  repeat: 0, timeout expired: 23384272 ms ago
+[R-]   tty       0x0000000002c35e48  , file descriptor: 9, write queue size: 0, readable, writable
+[-A]   signal    0x0000000002c35fe0  signum: 28 (SIGWINCH)
+[R-]   tty       0x0000000002c3b768  , write queue size: 0
+[-A]   async     0x00007f927e157cc0  
+[-A]   signal    0x0000000002d2b1c0  signum: 6 (SIGABRT)
+[-A]   signal    0x0000000002cfbfc0  signum: 14 (SIGALRM)
+[-A]   signal    0x0000000002caa640  signum: 1 (SIGHUP)
+[-A]   signal    0x0000000002bca420  signum: 2 (SIGINT)
+[-A]   signal    0x0000000002bca510  signum: 15 (SIGTERM)
+[-A]   signal    0x0000000002d2e230  signum: 26 (SIGVTALRM)
+[-A]   signal    0x0000000002d2e320  signum: 24 (SIGXCPU)
+[-A]   signal    0x0000000002d04c30  signum: 25 (SIGXFSZ)
+[-A]   signal    0x0000000002d04d20  signum: 12 (SIGUSR2)
+[-A]   signal    0x0000000002d00f20  signum: 5 (SIGTRAP)
+[-A]   signal    0x0000000002d01010  signum: 31 (SIGSYS)
+[-A]   signal    0x0000000002d0b3c0  signum: 3 (SIGQUIT)
+[-A]   signal    0x0000000002d0b4b0  signum: 6 (SIGABRT)
+[-A]   signal    0x0000000002d0b5a0  signum: 29 (SIGIO)
+[-A]   signal    0x0000000002c9f060  signum: 29 (SIGIO)
+[-A]   signal    0x0000000002c9f150  signum: 30 (SIGPWR)
+[-A]   signal    0x0000000002c9f240  signum: 16 (SIGSTKFLT)
+[-A]   signal    0x0000000002cab220  signum: 31 (SIGSYS)
+[RA]   timer     0x0000000002d0b720  repeat: 0, timeout in: 79 ms
+[--]   timer     0x0000000002c50308  repeat: 0, timeout expired: 52372 ms ago
+[-A]   async     0x0000000002d0b640  
+[R-]   timer     0x0000000002ccbc10  repeat: 0, timeout in: 29555336394190685 ms
+[-A]   async     0x00007f927c73ea58  
+[R-]   timer     0x0000000002c9dc20  repeat: 0, timeout in: 140721890650096 ms
+[R-]   prepare   0x00007f927c73e980  
+[-A]   async     0x0000000002cfc340  
+[-A]   async     0x0000000002d0a640  
+[-A]   async     0x0000000002c9dd70  
+[-A]   async     0x0000000002d0b2e0  
+[-A]   async     0x0000000002cb8c90  
+[R-]   timer     0x0000000002d0a580  repeat: 0, timeout expired: 23384271 ms ago
+[--]   timer     0x0000000002d030c0  repeat: 0, timeout expired: 55333 ms ago
+[-A]   timer     0x0000000002d04ab0  repeat: 0, timeout in: 5000 ms
+
+================================================================================
+==== System Information ========================================================
+
+Environment variables
+  XDG_VTNR=7
+  XDG_SESSION_ID=c2
+  XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/sonia
+  CLUTTER_IM_MODULE=xim
+  SESSION=ubuntu
+  NVM_CD_FLAGS=
+  GPG_AGENT_INFO=/home/sonia/.gnupg/S.gpg-agent:0:1
+  TERM=xterm-256color
+  VTE_VERSION=4205
+  XDG_MENU_PREFIX=gnome-
+  SHELL=/bin/bash
+  QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1
+  WINDOWID=52431654
+  UPSTART_SESSION=unix:abstract=/com/ubuntu/upstart-session/1000/2020
+  GNOME_KEYRING_CONTROL=
+  GTK_MODULES=gail:atk-bridge:unity-gtk-module
+  NVM_DIR=/home/sonia/.nvm
+  USER=sonia
+  LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+  QT_ACCESSIBILITY=1
+  XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
+  UNITY_HAS_3D_SUPPORT=false
+  XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
+  SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+  SESSION_MANAGER=local/sonia-Virtual-Machine:@/tmp/.ICE-unix/2280,unix/sonia-Virtual-Machine:/tmp/.ICE-unix/2280
+  DEFAULTS_PATH=/usr/share/gconf/ubuntu.default.path
+  XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/usr/share/upstart/xdg:/etc/xdg
+  UNITY_DEFAULT_PROFILE=unity-lowgfx
+  DESKTOP_SESSION=ubuntu
+  PATH=/home/sonia/.nvm/versions/node/v8.16.0/bin:/home/sonia/bin:/home/sonia/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+  QT_IM_MODULE=ibus
+  QT_QPA_PLATFORMTHEME=appmenu-qt5
+  XDG_SESSION_TYPE=x11
+  PWD=/home/sonia/swastha-blockchain
+  JOB=unity-settings-daemon
+  XMODIFIERS=@im=ibus
+  GNOME_KEYRING_PID=
+  LANG=en_GB.UTF-8
+  GDM_LANG=en_GB
+  MANDATORY_PATH=/usr/share/gconf/ubuntu.mandatory.path
+  COMPIZ_CONFIG_PROFILE=ubuntu
+  IM_CONFIG_PHASE=1
+  GDMSESSION=ubuntu
+  SESSIONTYPE=gnome-session
+  GTK2_MODULES=overlay-scrollbar
+  SHLVL=1
+  HOME=/home/sonia
+  XDG_SEAT=seat0
+  LANGUAGE=en_GB:en
+  LIBGL_ALWAYS_SOFTWARE=1
+  GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+  UPSTART_INSTANCE=
+  UPSTART_EVENTS=xsession started
+  XDG_SESSION_DESKTOP=ubuntu
+  LOGNAME=sonia
+  COMPIZ_BIN_PATH=/usr/bin/
+  XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+  QT4_IM_MODULE=xim
+  DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-jY1bZYol3w
+  NVM_BIN=/home/sonia/.nvm/versions/node/v8.16.0/bin
+  LESSOPEN=| /usr/bin/lesspipe %s
+  INSTANCE=
+  UPSTART_JOB=unity7
+  XDG_RUNTIME_DIR=/run/user/1000
+  DISPLAY=:0
+  XDG_CURRENT_DESKTOP=Unity
+  GTK_IM_MODULE=ibus
+  LESSCLOSE=/usr/bin/lesspipe %s %s
+  XAUTHORITY=/home/sonia/.Xauthority
+  _=/home/sonia/.nvm/versions/node/v8.16.0/bin/composer
+  OLDPWD=/home/sonia
+  SUPPRESS_NO_CONFIG_WARNING=y
+  GRPC_SSL_CIPHER_SUITES=ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384
+
+Resource limits                        soft limit      hard limit
+  core file size (blocks)                       0       unlimited
+  data seg size (kbytes)                unlimited       unlimited
+  file size (blocks)                    unlimited       unlimited
+  max locked memory (bytes)                 65536           65536
+  max memory size (kbytes)              unlimited       unlimited
+  open files                              1048576         1048576
+  stack size (bytes)                      8388608       unlimited
+  cpu time (seconds)                    unlimited       unlimited
+  max user processes                         7386            7386
+  virtual memory (kbytes)               unlimited       unlimited
+
+Loaded libraries
+  /lib/x86_64-linux-gnu/libdl.so.2
+  /lib/x86_64-linux-gnu/librt.so.1
+  /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+  /lib/x86_64-linux-gnu/libm.so.6
+  /lib/x86_64-linux-gnu/libgcc_s.so.1
+  /lib/x86_64-linux-gnu/libpthread.so.0
+  /lib/x86_64-linux-gnu/libc.so.6
+  /lib64/ld-linux-x86-64.so.2
+  /home/sonia/.nvm/versions/node/v8.16.0/lib/node_modules/composer-cli/node_modules/node-report/api.node
+  /home/sonia/.nvm/versions/node/v8.16.0/lib/node_modules/composer-cli/node_modules/grpc/src/node/extension_binary/node-v57-linux-x64-glibc/grpc_node.node
+
+================================================================================
