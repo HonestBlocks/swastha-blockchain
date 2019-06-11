@@ -31,7 +31,7 @@ asset medicine identified by medicineID {
   --> supplyChainMember owner
 }
 asset box identified by boxId{
-  o String boxId
+  o String boxId 
   o String trackingCode
   o String originAddress
   o String destinationAddress
@@ -45,8 +45,8 @@ asset box identified by boxId{
 }
 asset shipment identified by shipmentID {
   o String shipmentID
-  -->box[] boxId
   o String routename
+  o box[] boxId
   o Boolean reachedDestination
   --> transporter owner
 }
@@ -145,12 +145,11 @@ transaction createBox{
 
 transaction createShipment{
   o String shipmentID
-  --> box[] boxId
   o String routename
+  o box[] boxId
   o Boolean reachedDestination
   --> transporter owner
 }
-
 transaction updateContract{
   o paymentStatus status
   o completionStatus completionstatus
@@ -195,10 +194,7 @@ event error{
   o String detail
 }
 
-event updateShipmentEvent {
-  o String newTrackingCode
-  o String newCurrentAddress
-}
+
 
 event updateContractEvent {
   o paymentStatus newPaymentStatus
