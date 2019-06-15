@@ -46,7 +46,6 @@ asset box identified by boxId{
 asset shipment identified by shipmentID {
   o String shipmentID
   o String routename
-  o box[] boxId
   o Boolean reachedDestination
   --> transporter owner
 }
@@ -146,7 +145,6 @@ transaction createBox{
 transaction createShipment{
   o String shipmentID
   o String routename
-  o box[] boxId
   o Boolean reachedDestination
   --> transporter owner
 }
